@@ -1,2 +1,3 @@
-# Giercownia
-Projekty w js
+# Kalkulator
+
+Nauka js
