@@ -74,7 +74,7 @@ function showResult () {
         case '/':
         result = b / a;
         break;
-        case '2^':
+        case '^':
         result = b ** a;
         break;
 
@@ -87,10 +87,16 @@ function showResult () {
     mathSign.innerHTML = '';
 }
 
+
+
 function addToHistory () {
     const newHistoryItem = document.createElement('li');
-    newHistoryItem.innerHTML = `${currentNumber.innerHTML} ${mathSign.innerHTML} ${previousNumber.innerHTML} 
-    = ${result}`
+    if (mathSign.innerHTML === '/' || '^'){
+        newHistoryItem.innerHTML = `${previousNumber.innerHTML} ${mathSign.innerHTML} ${currentNumber.innerHTML} = ${result}`
+    }
+    else if (mathSign.innerHTML !== '/'){
+        newHistoryItem.innerHTML = `${currentNumber.innerHTML} ${mathSign.innerHTML} ${previousNumber.innerHTML} = ${result}`
+    }
     newHistoryItem.classList.add('history-item');
     calculatorHistory.appendChild(newHistoryItem);
 }
